@@ -8,12 +8,9 @@ router.get('/', async (req, res) => {
     // find all tags
     const tags = await Tag.findAll({
       include: [
-
         {
           model: Product,
           through: ProductTag
-          // as: "tagged_products", 
-          // attributes: {exclude: ['product_tag']} 
         }
       ]
     });
@@ -36,9 +33,6 @@ router.get('/:id', (req, res) => {
           {
             model: Product,
             through: ProductTag
-
-            // as: "tagged_products", 
-            //   attributes: {exclude: ['product_tag']} 
           }
         ]
       });
@@ -56,8 +50,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    // create a new tag
-    // const { tag_name } = req.body
     const newTag = await Tag.create(req.body);
     res.json(newTag);
     res.json(`New tag successfully created!`)

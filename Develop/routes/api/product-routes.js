@@ -15,8 +15,6 @@ router.get('/', async (req, res) => {
           model: Tag,
           through: ProductTag
         }
-        // { model: Category },
-        // { model: Tag, as: 'product_tags', attributes: {exclude: ['product_tag']}}
       ]
     });
     res.json(products);
@@ -39,8 +37,6 @@ router.get('/:id', async (req, res) => {
           model: Tag,
           through: ProductTag
         }
-        // { model: Category },
-        // { model: Tag, as: 'product_tags', attributes: {exclude: ['product_tag']}}
       ]
     });
     res.json(product);
